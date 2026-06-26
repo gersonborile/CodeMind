@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "prisma generate && next build",
+    "build": "prisma generate && node -e \"const fs=require('fs');const f='lib/generated/prisma/index.ts';fs.writeFileSync(f,fs.readFileSync(f,'utf8').replace('./client.js','./client'))\" && next build",
     "start": "next start",
     "postinstall": "prisma generate"
   },
